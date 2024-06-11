@@ -11,3 +11,4 @@ M = int(input("Enter the value of M: "))
 N = int(input("Enter the value of N: "))
 
 find_final_value(M, N)
+print("Final value of M is: ", M)

@@ -5,27 +5,37 @@ using namespace std;
 class Queue{
     int *arr;
     int front, rear;
-    int size=100;
+    int size;
     public:
-    Queue(){
-        arr=new int[this->size];
-        front=-1,rear=0;
+    Queue(int size){
+        this->size=size;
+        arr=new int[size];
+        front=0,rear=0;
     }
     bool enqueue(int x){
-        if(rear==size){
-            cout<<"Stack Overflow"<<endl;
+        bool ret=true;
+        if((rear==size && front==0)&& (front!=0 && rear==(front-1)%(size-1))){
+            cout<<"Queue Full"<<endl;
+            return false;
         }
-        if(front==-1)front++;
+        if(front==-1){front++;}
         arr[rear]=x;
         rear++;
+        if(front!=0 && rear==size){
+            rear=0;
+        }
+        return true;
     }
     int dequeue(){
-        if(front==rear){
+        if(front==rear || front==-1){
             cout<<"Queue empty"<<endl;
             return -1;
         }
         int x=arr[front];
         front++;
+        if(front==size){
+            front=0;
+        }
         return x;
     }
     bool isEmpty(){
@@ -45,15 +55,23 @@ class Queue{
 };
 
 int main(){
-    Queue *q=new Queue();
+    Queue *q=new Queue(4);
     q->enqueue(5);
+
     q->enqueue(6);
+
     q->enqueue(7);
+
     q->enqueue(8);
-    q->enqueue(9);
-    q->printQueue();
+
     cout<<q->dequeue()<<endl;
-    cout<<q->getfront()<<endl;
+    q->enqueue(10);
+    q->enqueue(10);
+    q->enqueue(10);
+    q->enqueue(10);
+    q->enqueue(10);
     q->dequeue();
-    q->printQueue();
+    
+
+ 
 }
