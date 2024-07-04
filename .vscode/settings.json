@@ -1,6 +1,9 @@
 {
     "files.associations": {
+        "*.ejs": "html",
         "*.dart": "dart",
-        "iostream": "cpp"
-    }
+        "iostream": "cpp",
+        "utility": "cpp"
+    },
+    "C_Cpp.errorSquiggles": "enabled"
 }

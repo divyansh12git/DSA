@@ -34,5 +34,4 @@ void kahnAlgorithm(int node,int v,unordered_map<int, list<int>>adj,vector<int> &
 
 
 int main(){
-
 }

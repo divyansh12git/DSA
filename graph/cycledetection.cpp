@@ -6,7 +6,8 @@ using namespace std;
 
 
 int main(){
-int n;
+
+vect<dsd;
 unordered_map<int,list<int>> adj;
 unordered_map<int,bool> visited;
 unordered_map<int,bool> dfsvisited;
