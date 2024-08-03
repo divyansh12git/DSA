@@ -27,6 +27,24 @@ Node* buildTree(Node* root){
     root->right=buildTree(root->right);
     return root;
 }
+void inorderTraversal(Node* root){
+    if(root==NULL)return;
+    inorderTraversal(root->left);
+    cout<<root->data<<" ";
+    inorderTraversal(root->right);
+}
+void preOrder(Node* root){
+    if(root==NULL)return;
+    cout<<root->data<<" ";
+    preOrder(root->left);
+    preOrder(root->right);
+}
+void postOrder(Node* root){
+    if(root==NULL)return;
+    postOrder(root->left);
+    postOrder(root->right);
+    cout<<root->data<<" ";
+}
 
 void levelOrderTraversal(Node* root){
     queue<Node*>q;
@@ -51,8 +69,20 @@ void levelOrderTraversal(Node* root){
 
 
 int main(){
+    #ifndef ONLINE_JUDGE4
+        freopen("input.txt","r",stdin);
+        freopen("output.txt","w",stdout);
+        freopen("Error.txt", "w", stderr);
+    #endif 
     Node* root;
     root=buildTree(root);
     levelOrderTraversal(root);
+    cout<<endl;
+    inorderTraversal(root);
+    cout<<endl;
+    preOrder(root);
+    cout<<endl;
+    postOrder(root);
+    cout<<endl;
 }
 
